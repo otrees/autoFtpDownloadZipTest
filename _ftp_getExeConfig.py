@@ -110,6 +110,7 @@ def moveConfigFiles(resultFiles,resultPathFiles,localTargetDir):
     # 遍历需要移动的文件
     for f in resultFiles:
         targetPathFile = localTargetDir+'//'+f
+        logging.info('targetPathFile is %s ',targetPathFile)
         print(targetPathFile)
         try:
             if os.path.exists(targetPathFile):
@@ -151,6 +152,7 @@ def readConfigFile(file):
 
 # Main
 if __name__ == '__main__':
+    logging.info('start program')
     # 当前脚本住在本地目录
     localdir = os.path.abspath(os.path.dirname(__file__))
     # 读取配置文件
@@ -185,6 +187,7 @@ if __name__ == '__main__':
         resultFiles,resultPathFiles = my_ftp.execute_download_dir_command(remote_dir_download_config_file)
         print("dir result:",resultFiles)
         my_ftp.ftp_logout()
+        logging.info('ftp logout')
         # 在工作目录解压文件
         if MyZip().extractFile(fn_exe,True) == 2001:
             logging.info('delete '+ fn_exe +' success')
@@ -192,3 +195,4 @@ if __name__ == '__main__':
         # 移动配置文件到data目录
         localTargetDir = localdir+"/"+localConfigTargetPath
         moveConfigFiles(resultFiles,resultPathFiles,localTargetDir)
+        logging.info('end program.')

@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['_ftp_getExeConfig.py'],
-             pathex=['C:\\testFTP\\11111'],
+             pathex=['D:\\dev\\python\\autoFtpZipTest\\publish_git'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -29,4 +29,4 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           runtime_tmpdir=None,
-          console=True , icon='icon\\icon_256.ico')
+          console=False , icon='icon\\icon_256.ico')

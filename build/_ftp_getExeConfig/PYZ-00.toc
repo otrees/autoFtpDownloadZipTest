@@ -1,4 +1,4 @@
-('C:\\testFTP\\11111\\build\\_ftp_getExeConfig\\PYZ-00.pyz',
+('D:\\dev\\python\\autoFtpZipTest\\publish_git\\build\\_ftp_getExeConfig\\PYZ-00.pyz',
  [('ntpath', 'd:\\program files\\python\\python37\\lib\\ntpath.py', 'PYMODULE'),
   ('_strptime',
    'd:\\program files\\python\\python37\\lib\\_strptime.py',

@@ -146,7 +146,7 @@ def removeDirFiles(localPath,filter_prefix):
 def readConfigFile(file):
     # 读取Config文件
     config = configparser.ConfigParser()
-    secs = config.read(file, encoding="utf-8")  # 读取配置文件，如果配置文件不存在则创建
+    secs = config.read(file)  # 读取配置文件，如果配置文件不存在则创建
     return config
 
 # Main

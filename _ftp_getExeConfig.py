@@ -4,6 +4,7 @@ import shutil
 import logging
 import zipfile
 from ftplib import FTP
+import configparser
 
 # 初始化日志
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
@@ -141,24 +142,35 @@ def removeDirFiles(localPath,filter_prefix):
             elif os.path.isdir(filepath):
                 shutil.rmtree(filepath,True)
                 print("dir ",filepath," ---- removed!")
+# 读取配置文件
+def readConfigFile(file):
+    # 读取Config文件
+    config = configparser.ConfigParser()
+    secs = config.read(file, encoding="utf-8")  # 读取配置文件，如果配置文件不存在则创建
+    return config
 
+# Main
 if __name__ == '__main__':
-    # 要连接的主机ip
-    host_ip = sys.argv[1]
-    # 用户名
-    username = sys.argv[2]
-    # 密码
-    password = sys.argv[3]
-    # 最新执行文件目录
-    remote_dir_download_release = sys.argv[4]
-    # 配置文件
-    remote_dir_download_config_file = sys.argv[5]
-    #remote_dir_download_config_file = '/project/mnxl/config/client_2'
-    # method下载工程文件名称
-    fn_exe = sys.argv[6] # 文件名称
     # 当前脚本住在本地目录
     localdir = os.path.abspath(os.path.dirname(__file__))
-    localUnityData =  sys.argv[7]
+    # 读取配置文件
+    config = readConfigFile(localdir+'\\_ftp_config.ini')
+    print(config["FTP"]["host_ip"])
+    #sys.exit(0)
+    # 要连接的主机ip
+    host_ip = config["FTP"]["host_ip"]
+    # 用户名
+    username = config["FTP"]["username"]
+    # 密码
+    password = config["FTP"]["password"]
+    # 最新执行文件目录
+    remote_dir_download_release = config["FTP"]["remote_dir_download_release"]
+    # 配置文件
+    remote_dir_download_config_file = config["FTP"]["remote_dir_download_config_file"]
+    #remote_dir_download_config_file = '/project/mnxl/config/client_2'
+    # method下载工程文件名称
+    fn_exe = config["FTP"]["fn_exe"] # 文件名称
+    localConfigTargetPath = config["FTP"]["localConfigTargetPath"]
     # 实例化
     my_ftp = MyFtp()
     # 如果登录成功则执行命令，然后退出
@@ -178,5 +190,5 @@ if __name__ == '__main__':
             logging.info('delete '+ fn_exe +' success')
         print("current dir list : %s" %os.listdir(os.getcwd()))
         # 移动配置文件到data目录
-        localTargetDir = localdir+"/"+localUnityData
+        localTargetDir = localdir+"/"+localConfigTargetPath
         moveConfigFiles(resultFiles,resultPathFiles,localTargetDir)

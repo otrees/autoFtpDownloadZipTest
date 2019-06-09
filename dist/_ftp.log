@@ -1,0 +1,16 @@
+2019-06-09 20:30:23,035 - INFO - login success , now will execute some command
+2019-06-09 20:30:23,037 - INFO - command_result:257 "/" is current directory.
+2019-06-09 20:30:23,038 - INFO - command_result:/
+2019-06-09 20:30:23,039 - INFO - command_result:250 CWD successful. "/project/mnxl/test" is current directory.
+2019-06-09 20:30:25,045 - INFO - command_result:226 Successfully transferred "/project/mnxl/test/mnxl_latest.zip"
+2019-06-09 20:30:25,046 - INFO - command_result:257 "/project/mnxl/test" is current directory.
+2019-06-09 20:30:25,046 - INFO - command_result:/project/mnxl/test
+2019-06-09 20:30:25,046 - INFO - command_result:250 CWD successful. "/project/mnxl/config/client_2" is current directory.
+2019-06-09 20:30:25,062 - INFO - command_result:226 Successfully transferred "/project/mnxl/config/client_2/ComputerConfig.json"
+2019-06-09 20:30:25,075 - INFO - command_result:226 Successfully transferred "/project/mnxl/config/client_2/RigidbodyConfig.json"
+2019-06-09 20:30:25,076 - WARNING - now will disconnect with server
+2019-06-09 20:30:29,679 - INFO - delete mnxl_latest.zip success
+2019-06-09 20:30:29,682 - INFO - exists target file:C:\testFTP\11111\dist/MoNiXunLian_Data ComputerConfig.json ---- removed
+2019-06-09 20:30:29,684 - INFO - move file C:\testFTP\11111\dist/MoNiXunLian_Data\ComputerConfig.json ---- success 
+2019-06-09 20:30:29,685 - INFO - exists target file:C:\testFTP\11111\dist/MoNiXunLian_Data RigidbodyConfig.json ---- removed
+2019-06-09 20:30:29,690 - INFO - move file C:\testFTP\11111\dist/MoNiXunLian_Data\RigidbodyConfig.json ---- success 

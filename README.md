@@ -1,4 +1,4 @@
-自动ftp下载，拷贝配置文件，准备测试
+## 自动ftp下载，拷贝配置文件，准备测试
 ====
 打包应该包含文件夹icon\icon_256.ico 要求ico是256*256分辨率 <br/>
 打包命令(不显示控制台)：pyinstaller --onefile --icon icon\icon_256.ico _ftp_getExeConfig.py --noconsole <br/>
@@ -7,3 +7,14 @@
   2）执行文件dist/_ftp_copy_exe.bat<br/>
   3）在当前目录按照ini的参数连接FTP服务器，程序先删除当前文件夹根目录中不含_前缀的文件，并连接服务器下载zip，解压缩文件，删除zip，下载config文件移动到指定目录，完成测试测试包准备工作。<br/>
   4）可以使用主控程序控制解压缩的测试包的执行文件，完成自动化运行测试。<br/>
+
+  ====
+## 关于_ftp_config.ini
+[FTP]
+host_ip= 192.168.254.200
+username = wyl
+password = 129991
+remote_dir_download_release = /project/mnxl/test
+remote_dir_download_config_file = /project/mnxl/config/client_2
+fn_exe = mnxl_latest.zip
+localConfigTargetPath = MoNiXunLian_Data

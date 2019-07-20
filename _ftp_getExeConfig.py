@@ -188,7 +188,7 @@ if __name__ == '__main__':
         print("dir result:",resultFiles)
         my_ftp.ftp_logout()
         logging.info('ftp logout')
-        # 在工作目录解压文件
+        # 在工作目录解压文件，请确认解压完成给出提示，再移动配置文件至目录
         if MyZip().extractFile(fn_exe,True) == 2001:
             logging.info('delete '+ fn_exe +' success')
         print("current dir list : %s" %os.listdir(os.getcwd()))

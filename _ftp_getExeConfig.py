@@ -95,9 +95,12 @@ class MyFtp():
 class MyZip():
     # 解压文件
     def extractFile(self,fn,isDel=False):
+        logging.info('zip extractFile method start')
         zfile = zipfile.ZipFile(fn)
         zfile.extractall()
+        logging.info('zip extractall success')
         zfile.close()
+        logging.info('zip close success')
         if isDel :
             os.remove(fn)
             return 2001
@@ -189,8 +192,11 @@ if __name__ == '__main__':
         my_ftp.ftp_logout()
         logging.info('ftp logout')
         # 在工作目录解压文件，请确认解压完成给出提示，再移动配置文件至目录
-        if MyZip().extractFile(fn_exe,True) == 2001:
+        ftp_return = MyZip().extractFile(fn_exe,True)
+        if ftp_return == 2001:
             logging.info('delete '+ fn_exe +' success')
+        elif ftp_return == 2002:
+            logging.info('delete '+ fn_exe +' error')
         print("current dir list : %s" %os.listdir(os.getcwd()))
         # 移动配置文件到data目录
         localTargetDir = localdir+"/"+localConfigTargetPath
